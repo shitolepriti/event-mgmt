@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="userevent.css">
+</head>
+<body>
+
+<div class="container">
+    <style>
+        a {
+            color: white; 
+            text-decoration: none; 
+        }
+    </style>
+        <header class="header">
+            <h1>Event Management</h1>
+            <nav class="user-menu">
+                
+                <span>Organizer</span>
+                <span><a th:href="@{/orgReg}">Logout</a></span>
+            </nav>
+        </header>
+        <aside class="sidebar">
+            <ul>
+           
+         <li><a th:href="@{/custindex}">Home</a></li>
+                <li> <a th:href="@{/bookevent}" style="decoration:no-decoretion">Book Event</a></li>
+                <li><a th:href="@{/usereventlist}">Booking history</a></li>
+                
+            </ul>
+        </aside>
+        <main class="main-content">
+            <h2>Home</h2>
+            <div class="dashboard">
+                
+                
+         <form th:action="@{/usereventstatus}"  th:object="${userevent}" method ="post">
+                <label for="place">Place</label>
+                    <input type="text" placeholder="Place" name="place" th:field="*{place}" required>
+                    <span th:if="${#fields.hasErrors('place')}" th:errors="*{place}"></span>
+                    <br><br>
+                     <label for="venue">Venue</label>
+                    <input type="text" placeholder="Venue" name="venue" th:field="*{venue}" required>
+                    <span th:if="${#fields.hasErrors('venue')}" th:errors="*{venue}"></span>
+                    <br><br>
+               
+                <label for="event">Event</label>
+                    <input type="text" placeholder="Event" name="event" th:field="*{event}" required>
+                    <span th:if="${#fields.hasErrors('event')}" th:errors="*{event}"></span>
+                    <br><br>
+                   <label for="date">Date</label>
+                    <input type="date" placeholder="Date" name="date" th:field="*{date}" required>
+                    <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span>
+                    <br><br>
+                   <label for="numberOfGuest">Number Of Guest</label>
+                    <input type="text" placeholder="numberOfGuest" name="numberOfGuest" th:field="*{numberOfGuest}" required>
+                    <span th:if="${#fields.hasErrors('numberOfGuest')}" th:errors="*{numberOfGuest}"></span>
+                    <br><br>
+                    <label for="food">Food</label>
+                    <input type="text" placeholder="Food" name="food" th:field="*{food}" required>
+                    <span th:if="${#fields.hasErrors('food')}" th:errors="*{food}"></span>
+                    <br><br>
+                  
+                         <label for="equipment">Equipment</label>
+                    <input type="text" placeholder="Equipment" name="equipment" th:field="*{equipment}" required>
+                    <span th:if="${#fields.hasErrors('equipment')}" th:errors="*{equipment}"></span>
+                    <br><br>
+                      
+                    
+                    <button type="submit">Book</button>
+                 	<p th:if="${param.error}">Enter Valid Details</p>
+                </form>       
+                
+                
+
+                
+                
+                
+                
+                
+                
+            </div>
+        </main>
+    </div>
+
+
+
+</body>
+</html>

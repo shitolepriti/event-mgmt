@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="organizers.css">
+</head>
+<body>
+
+<table>
+<thead>
+<th></th>
+<th>Organizer Name</th>
+<th>Address</th>
+<th>Mobile Number</th>
+<th>Email</th>
+<th>Password</th>
+
+<tbody>
+<tr th:each="organizer:${organizerList}">
+<td th:text="${organizer.id}">id</td>
+<td th:text="${organizer.orgname}">orgname</td>
+<td th:text="${organizer.address}">address</td>
+<td th:text="${organizer.mobilenumber}">mobilenumber</td>
+<td th:text="${organizer.emailaddress}">emailaddress</td>
+<td th:text="${organizer.password}">password</td>
+<td>
+<form th:action="@{/organizer/delete}" method="POST">
+<input type="hidden" name="id" th:value="${organizer.id}">
+<button type="submit">delete</button>
+</form>
+</td>
+<td>
+
+
+</form>
+</td>
+</tr>
+</tbody>
+
+</thead>
+</table>
+</body>
+</html>

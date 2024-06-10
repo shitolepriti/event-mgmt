@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="adminlogin.css">
+</head>
+<body>
+
+<div class="container">
+        <header>
+            <h1>EVENT MANAGEMENT</h1>
+            
+        </header>
+        <div class="form-container">
+            
+<form th:action="@{/adminloginstatus}" th:object="${adminlogin}" method="post">
+<label for="username">Enter Username</label>
+<input type="text" placeholder="Username" name="username" th:field="*{username}">
+<br>
+<br>
+<label for="password">Enter Password</label>
+<input type="password" placeholder="Password" name="password" th:field="*{password}">
+<br>
+<br>
+
+	
+<input type="submit">
+
+               
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

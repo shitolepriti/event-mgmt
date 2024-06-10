@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="orgLogin.css">
+</head>
+<body>
+
+<div class="container">
+        <header>
+            <h1>EVENT MANAGEMENT</h1>
+            <nav>
+                           <a th:href="@{/home}">Home</a>
+                <a th:href="@{/register}">Register</a>
+                <a th:href="@{/login}">Login</a>
+            </nav>
+        </header>
+        <div class="form-container">
+            <div class="tab">
+           <center>    <button class="tablinks" id="customerTab">Customer</button>
+                <button class="tablinks" id="organizerTab">Organizer</button></center> 
+            </div>
+<form th:action="@{/orgloginstatus}" th:object="${orghome}" method="post">
+<label for="username">Enter Username</label>
+<input type="text" placeholder="Username" name="username" th:field="*{username}">
+<br>
+<br>
+<label for="password">Enter Password</label>
+<input type="password" placeholder="Password" name="password" th:field="*{password}">
+<br>
+<br>
+
+	
+<input type="submit">
+
+<a th:href="@{/organizer}">New User? Register Here</a>
+<p th:if="${param.error}">Enter Valid Details</p>
+
+               
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

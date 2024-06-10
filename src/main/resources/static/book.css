@@ -1,0 +1,197 @@
+@charset "ISO-8859-1";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #d9a7c7, #fffcdc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar main";
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 250px 1fr;
+    width: 100%;
+    height: 100%;
+    max-width: 1600px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 2rem;
+    background: linear-gradient(to bottom right, #ffcccc, #cc99ff); /* Gradient background for header */
+}
+.header-text {
+    background: linear-gradient(to bottom right, #ff66b2, #cc3399); /* Gradient text color */
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.user-menu span {
+    margin-left: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color:#ed51b3;
+    color: white;
+    padding: 2rem;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin: 2rem 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+.main-content {
+    grid-area: main;
+    padding: 2rem;
+    background: linear-gradient(to bottom right, #d9a7c7, #fffcdc);
+    color: black;
+}
+
+.main-content h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: black;
+}
+
+
+
+
+.confirmation-box {
+    background-color: #a52a2a;
+    color: yellow;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-box h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.confirmation-box p {
+    margin: 10px 0;
+}
+
+.proceed-payment {
+    font-weight: bold;
+}
+
+.buttons {
+    text-align: center;
+}
+
+.styled-button {
+    background-color: #00ff00;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.styled-button a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 20px; /* Adjust this value if the text is not vertically centered */
+}
+
+.styled-button:hover {
+    background-color: #00cc00;
+}
+/* Existing CSS styles */
+
+.confirmation-box {
+    background-color: #20b2aa; /* Updated color for confirmation box */
+    color: white; /* Updated text color */
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-box h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.confirmation-box p {
+    margin: 10px 0;
+}
+
+.home-button {
+    background-color: #4682b4; /* Updated color for home button */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.home-button a {
+    color: white;
+    text-decoration: none;
+}
+
+.home-button:hover {
+    background-color: #4169e1; /* Darker shade on hover */
+}
+.home-button {
+    background-color: #4682b4; /* Blue color for home button */
+    color: white; /* Text color */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+    background-color: #4169e1; /* Darker shade on hover */
+}

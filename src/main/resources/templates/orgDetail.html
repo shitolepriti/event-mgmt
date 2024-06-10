@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="orgdetails.css">
+</head>
+<body>
+
+
+<div class="container">
+    <style>
+        a {
+            color: white; 
+            text-decoration: none; 
+        }
+    </style>
+        <header class="header">
+            <h1>Event Management</h1>
+            <nav class="user-menu">
+                
+                <span>Organizer</span>
+                <span><a th:href="@{/orgReg}">Logout</a></span>
+            </nav>
+        </header>
+        <aside class="sidebar">
+            <ul>
+           
+             <li><a th:href="@{/custindex}">Home</a></li>
+            <li><a th:href="@{/bookevent}" style="text-decoration: none;">Book Event</a></li>
+            <li><a th:href="@{/usereventlist}">Booking History</a></li>
+                
+            </ul>
+        </aside>
+        <main class="main-content">
+            <h2>Home</h2>
+            <div class="dashboard">
+                
+                
+                
+                
+                
+               
+                
+<table>
+<thead>
+<th>Id</th>
+<th> Venue Name</th>
+<th>Place</th>
+<th>Venue Contact</th>
+<th>Event Name</th>
+<th>Food</th>
+<th>Food Price</th>
+<th>Equipment</th>
+<th>Equipment Price</th>
+<th>Total Price</th>
+<tbody>
+<tr th:each="addVenue :${venuelist}">
+<td th:text="${addVenue.id}">Id</td>
+<td th:text="${addVenue.venuname}">Venu Name</td>
+<td th:text="${addVenue.place}">Place</td>
+<td th:text="${addVenue.venucontact}">Venu Contact</td>
+<td th:text="${addVenue.eventname}">Event Name</td>
+<td th:text="${addVenue.food}">food</td>
+<td th:text="${addVenue.food_price}">food_price</td>
+<td th:text="${addVenue.equipment}">equipment</td>
+<td th:text="${addVenue.equipment_price}">equipment_price</td>
+<td th:text="${addVenue.total_price}">total_price</td>
+<td>
+<form th:action="@{/venue/delete}" method="POST">
+<input type="hidden" name="id" th:value="${addVenue.id}">
+<button type="submit">Delete</button>
+</form>
+</td>
+<td>
+<button><a th:href="@{/bookevent}">Book</a></button>
+
+</form>
+</td>
+</tr>
+</tbody>
+</thead>
+</table>
+                
+                
+                
+                
+                
+                
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

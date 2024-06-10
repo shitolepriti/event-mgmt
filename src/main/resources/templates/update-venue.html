@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="updatevenue.css">
+</head>
+<body>
+<div class="container">
+    <style>
+        a {
+            color: white; 
+            text-decoration: none; 
+        }
+    </style>
+        <header class="header">
+            <h1>Event Management</h1>
+            <nav class="user-menu">
+                
+                <span>Organizer</span>
+                <span><a th:href="@{/orgReg}">Logout</a></span>
+            </nav>
+        </header>
+        <aside class="sidebar">
+            <ul>
+           
+         <li><a th:href="@{/home}">Home</a></li>
+                <li> <a th:href="@{/managevenue}" style="decoration:no-decoretion">Manage Venue</a></li>
+                <li><a th:href="@{/bookingstatus}">Booking Status</a></li>
+                
+            </ul>
+        </aside>
+        <main class="main-content">
+            <h2>Home</h2>
+            <div class="dashboard">
+                
+               <form th:action="@{/savevenueupdate}"  th:object="${addVenue}" method ="post">
+                <label for="venuname">Venuname</label>
+                    <input type="text" placeholder="venuname" name="venuname" th:field="*{venuname}" required>
+                    <span th:if="${#fields.hasErrors('venuname')}" th:errors="*{venuname}"></span>
+                    <br><br>
+                     <label for="place">Place</label>
+                    <input type="text" placeholder="place" name="place" th:field="*{place}" required>
+                    <span th:if="${#fields.hasErrors('place')}" th:errors="*{place}"></span>
+                    <br><br>
+               
+                <label for="venucontact">venu contact</label>
+                    <input type="text" placeholder="venucontact" name="venucontact" th:field="*{venucontact}" required>
+                    <span th:if="${#fields.hasErrors('venucontact')}" th:errors="*{venucontact}"></span>
+                    <br><br>
+                   
+                     <label for="eventname">Event Name</label>
+                    <input type="text" placeholder="eventname" name="eventname" th:field="*{eventname}" required>
+                    <span th:if="${#fields.hasErrors('eventname')}" th:errors="*{eventname}"></span>
+                    <br><br>
+                    
+                     <label for="food"> Food</label>
+                    <input type="text" placeholder="food" name="food" th:field="*{food}" required>
+                    <span th:if="${#fields.hasErrors('food')}" th:errors="*{food}"></span>
+                    <br><br>
+                    
+                    <label for="food_price">Food Price</label>
+                    <input type="text" placeholder="food_price" name="food_price" th:field="*{food_price}" required>
+                    <span th:if="${#fields.hasErrors('food_price')}" th:errors="*{food_price}"></span>
+                    <br><br>
+                    
+                    <label for="equipment">Equipment</label>
+                    <input type="text" placeholder="equipment" name="equipment" th:field="*{equipment}" required>
+                    <span th:if="${#fields.hasErrors('equipment')}" th:errors="*{equipment}"></span>
+                    <br><br>
+                    <label for="equipment_price">Equipment Price</label>
+                    <input type="text" placeholder="equipment_price" name="equipment_price" th:field="*{equipment_price}" required>
+                    <span th:if="${#fields.hasErrors('equipment_price')}" th:errors="*{equipment_price}"></span>
+                    <br><br>
+                      <label for="total_price">Total Price</label>
+                    <input type="text" placeholder="total_price" name="total_price" th:field="*{total_price}" required>
+                    <span th:if="${#fields.hasErrors('total_price')}" th:errors="*{total_price}"></span>
+                    <br><br>
+                    <button type="submit">AddVenue</button>
+                 	<p th:if="${param.error}">Enter Valid Details</p>
+                </form>
+                
+                
+                
+                
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

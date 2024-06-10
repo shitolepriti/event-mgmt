@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/.css">
+</head>
+<body>
+<table>
+<thead>
+<th>Id</th>
+<th>Organizer Name</th>
+<th>Address</th>
+<th>mobile Number</th>
+<th>Email Address</th>
+<th>Password</th>
+<tbody>
+<tr th:each="organizer :${organizerList}">
+<td th:text="${organizer.id}">Id</td>
+<td th:text="${organizer.orgname}">Organizer Name</td>
+<td th:text="${organizer.address}">Address</td>
+<td th:text="${organizer.mobilenumber}">Mobile Number</td>
+<td th:text="${organizer.emailaddress}">Email Address</td>
+<td th:text="${organizer.password}">Password</td>
+<td>
+<form th:action="@{/organizer/delete}" method="POST">
+<input type="hidden" name="id" th:value="${organizer.id}">
+<button type="submit">delete</button>
+</form>
+</td>
+<td>
+<form th:action="@{/organizer/edit}" method="get">
+<input type="hidden" name="id" th:value="${organizer.id}">
+<button type="submit">Edit</button>
+
+</form>
+</td>
+</tr>
+</tbody>
+</thead>
+</table>
+</body>
+</html>

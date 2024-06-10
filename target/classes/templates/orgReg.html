@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="orgReg.css">
+</head>
+<body>
+<div class="container">
+        <header>
+            <h1>EVENT MANAGEMENT</h1>
+            <nav>
+                <a th:href="@{/home}">Home</a>
+                <a th:href="@{/adminlogin}">Admin Login</a>
+               
+                <a th:href="@{/orglogin}">Login</a>
+            </nav>
+        </header>
+        <main>
+            <div class="form-container">
+            <style>
+        a {
+            color: black; 
+            text-decoration: none; 
+        }
+    </style>
+                <div class="toggle-buttons">
+                    <button> <a th:href="@{/custReg}">Customer</a></button>
+                   
+                    <button> <a th:href="@{/orgReg}">Organizer</a></button>
+                    
+                </div>
+                <form th:action="@{/orgstatus}"  th:object="${organizer}" method ="post">
+                <label for="orgname">Name</label>
+                    <input type="text" placeholder="Name" name="orgname" th:field="*{orgname}" required>
+                    <span th:if="${#fields.hasErrors('orgname')}" th:errors="*{orgname}"></span>
+                    <br>
+                     <label for="address">Address</label>
+                    <input type="text" placeholder="address" name="address" th:field="*{address}" required>
+                    <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
+                    <br>
+               
+                <label for="mobilenumber">mobile number</label>
+                    <input type="text" placeholder="mobilenumber" name="mobilenumber" th:field="*{mobilenumber}" required>
+                    <span th:if="${#fields.hasErrors('mobilenumber')}" th:errors="*{mobilenumber}"></span>
+                    <br>
+                   <label for="emailaddress">email address</label>
+                    <input type="text" placeholder="emailaddress" name="emailaddress" th:field="*{emailaddress}" required>
+                    <span th:if="${#fields.hasErrors('emailaddress')}" th:errors="*{emailaddress}"></span>
+                    <br>
+                   <label for="password">password</label>
+                    <input type="text" placeholder="password" name="password" th:field="*{password}" required>
+                    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+                    <br><br>
+                    
+                    <button type="submit">Register</button>
+                 	<p th:if="${param.error}">Enter Valid Details</p>
+                 	
+                 	
+           
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

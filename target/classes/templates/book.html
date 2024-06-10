@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+
+
+<div class="container">
+    <style>
+        a {
+            color: white; 
+            text-decoration: none; 
+        }
+    </style>
+        <header class="header">
+            <h1>Event Management</h1>
+            <nav class="user-menu">
+                
+                <span>Organizer</span>
+                <span><a th:href="@{/orgReg}">Logout</a></span>
+            </nav>
+        </header>
+        <aside class="sidebar">
+            <ul>
+           
+ <li><a th:href="@{/custindex}">Home</a></li>
+            <li><a th:href="@{/bookevent}" style="text-decoration: none;">Book Event</a></li>
+            <li><a th:href="@{/usereventlist}">Booking History</a></li>
+                
+            </ul>
+        </aside>
+        <main class="main-content">
+            <h2>Home</h2>
+            <div class="dashboard">
+                
+                
+                
+                
+                
+                <div class="confirmation-box">
+        <h1>Your Booking is Successful!!</h1>
+        <p> Booking will  be visible to Organizer </p>
+         <p>Organizer will contact you as soon as possible </p>
+          <p>THANK YOU..!!</p>
+        
+        <div class="buttons">
+           
+          
+            <button> <a th:href="@{/custindex}">Home</a></button>
+        </div>
+    </div>
+                
+
+                
+                
+                
+                
+                
+                
+            </div>
+        </main>
+    </div>
+</body>
+</html>

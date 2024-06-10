@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="orgindex.css">
+    
+<body>
+
+
+<div class="container">
+    <style>
+        a {
+            color: white; 
+            text-decoration: none; 
+        }
+    </style>
+        <header class="header">
+            <h1>Event Management</h1>
+            <nav class="user-menu">
+                
+                <span>Organizer</span>
+                <span><a th:href="@{/orgReg}">Logout</a></span>
+            </nav>
+        </header>
+        <aside class="sidebar">
+            <ul>
+           
+         <li><a th:href="@{/orgindex}">Home</a></li>
+                <li> <a th:href="@{/managevenue}" style="decoration:no-decoretion">Manage Venue</a></li>
+                <li><a th:href="@{/orgbookingstatus}">Booking Status</a></li>
+                
+            </ul>
+        </aside>
+        <main class="main-content">
+            <h2>Home</h2>
+            <div class="dashboard">
+    
+                
+              <table>
+<thead>
+<th>Id</th>
+<th>Place</th>
+<th>Venue</th>
+<th>Event</th>
+<th>Date</th>
+<th>Number Of Guest</th> 
+ <th>Food</th>   
+ <th>Equipment</th>      
+                
+    <tbody>
+<tr th:each="userevent:${usereventlist}">
+<td th:text="${userevent.id}">id</td>
+<td th:text="${userevent.place}">Place</td>
+<td th:text="${userevent.venue}">Address</td>
+<td th:text="${userevent.event}">Mobile Number</td>
+<td th:text="${userevent.date}">Email Address</td>
+<td th:text="${userevent.numberOfGuest}">Number Of Guest</td>
+<td th:text="${userevent.food}">Food</td>
+<td th:text="${userevent.equipment}">equipment</td>
+<td>            
+   <form th:action="@{/userevent/delete}" method="post">
+<input type="hidden" name="id" th:value="${userevent.id}">
+<button type="submit">delete</button>
+</form>
+</td>
+</tr>
+</tbody>
+</thead>
+</table>             
+            </div>
+        </main>
+    </div>
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </div>
+        </main>
+    </div>
+
+
+
+</body>
+</html>

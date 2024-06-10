@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="custindex.css">
+
+<style>
+    a {
+        color: white;
+        text-decoration: none;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <header class="header">
+        <h1>Event Management</h1>
+        <nav class="user-menu">
+            <span>Organizer</span>
+            <span><a th:href="@{/custReg}">Logout</a></span>
+        </nav>
+    </header>
+    <aside class="sidebar">
+        <ul>
+            <li><a th:href="@{/custindex}">Home</a></li>
+            <li><a th:href="@{/bookevent}" style="text-decoration: none;">Book Event</a></li>
+            <li><a th:href="@{/usereventlist}">Booking History</a></li>
+        </ul>
+    </aside>
+    <main class="main-content">
+        <h2>Home</h2>
+        <div class="dashboard">
+       
+            <table>
+                <thead>
+                    <tr>
+                       
+                      
+                         <th>Id</th>
+                        <th>Organizer Name</th>
+                        <th>Address</th>
+                        <th>Mobile Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="organizer : ${organizerList}">
+                        <td th:text="${organizer.id}">id</td>
+                        <td th:text="${organizer.orgname}">orgname</td>
+                        <td th:text="${organizer.address}">address</td>
+                        <td th:text="${organizer.mobilenumber}">mobilenumber</td>
+                        <td>
+                            <form th:action="@{/organizer/details}" method="POST">
+                                <input type="hidden" name="id" th:value="${organizer.id}">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                        <td>
+                           <button><a th:href="@{/orgDetail}">Details</a></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
+
+</body>
+</html>

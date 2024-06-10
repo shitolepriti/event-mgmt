@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="addvenue.css">
+</head>
+<body>
+
+<div class="container">
+    <style>
+        a {
+            color: white; 
+            text-decoration: none; 
+        }
+    </style>
+        <header class="header">
+            <h1>Event Management</h1>
+            <nav class="user-menu">
+                
+                <span>Organizer</span>
+                <span><a th:href="@{/orgReg}">Logout</a></span>
+            </nav>
+        </header>
+        <aside class="sidebar">
+            <ul>
+           
+       <li><a th:href="@{/orgindex}">Home</a></li>
+                <li> <a th:href="@{/managevenue}" style="decoration:no-decoretion">Manage Venue</a></li>
+                <li><a th:href="@{/orgbookingstatus}">Booking Status</a></li>
+                
+            </ul>
+        </aside>
+        <main class="main-content">
+            <h2>Home</h2>
+            <div class="dashboard">
+                
+               <form th:action="@{/venuestatus}"  th:object="${addvenue}" method ="post">
+                <label for="venuname">Venue Name</label>
+                    <input type="text" placeholder="Venue Name" name="venuname" th:field="*{venuname}" required>
+                    <span th:if="${#fields.hasErrors('venuname')}" th:errors="*{venuname}"></span>
+                    <br><br>
+                     <label for="place">Place</label>
+                    <input type="text" placeholder="Place" name="place" th:field="*{place}" required>
+                    <span th:if="${#fields.hasErrors('place')}" th:errors="*{place}"></span>
+                    <br><br>
+               
+                <label for="venucontact">Venue Contact</label>
+                    <input type="text" placeholder="Venue Contact" name="venucontact" th:field="*{venucontact}" required>
+                    <span th:if="${#fields.hasErrors('venucontact')}" th:errors="*{venucontact}"></span>
+                    <br><br>
+                   
+                     <label for="eventname">Event Name</label>
+                    <input type="text" placeholder="Event Name" name="eventname" th:field="*{eventname}" required>
+                    <span th:if="${#fields.hasErrors('eventname')}" th:errors="*{eventname}"></span>
+                    <br><br>
+                    
+                     <label for="food"> Food</label>
+                    <input type="text" placeholder="Food" name="food" th:field="*{food}" required>
+                    <span th:if="${#fields.hasErrors('food')}" th:errors="*{food}"></span>
+                    <br><br>
+                    
+                    <label for="food_price">Food Price</label>
+                    <input type="text" placeholder="food_price" name="food_price" th:field="*{food_price}" required>
+                    <span th:if="${#fields.hasErrors('food_price')}" th:errors="*{food_price}"></span>
+                    <br><br>
+                    
+                    <label for="equipment">Equipment</label>
+                    <input type="text" placeholder="Equipment" name="equipment" th:field="*{equipment}" required>
+                    <span th:if="${#fields.hasErrors('equipment')}" th:errors="*{equipment}"></span>
+                    <br><br>
+                    <label for="equipment_price">Equipment Price</label>
+                    <input type="text" placeholder="equipment_price" name="equipment_price" th:field="*{equipment_price}" required>
+                    <span th:if="${#fields.hasErrors('equipment_price')}" th:errors="*{equipment_price}"></span>
+                    <br><br>
+                    
+                   <label for="total_price">Total Price</label>
+                    <input type="text" placeholder="total price" name="total_price" th:field="*{total_price}" required>
+                    <span th:if="${#fields.hasErrors('total_price')}" th:errors="*{total_price}"></span>
+                    <br><br>
+                    <button type="submit">AddVenue</button>
+                 	<p th:if="${param.error}">Enter Valid Details</p>
+                </form>
+                
+                
+                
+                
+            </div>
+        </main>
+    </div>
+    <!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
